@@ -141,7 +141,7 @@ cython_debug/
 
 .vscode/
 
-token
+token.txt
 
 make.bat
 
