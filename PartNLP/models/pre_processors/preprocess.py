@@ -18,7 +18,6 @@ class PreProcess:
         self.words = []
         self.result = []
         self.stem_words = []
-        self.lemma = []
         self.lemmatized_words = []
         self.non_stopwords = []
         if config['text'] != '':
@@ -36,14 +35,14 @@ class PreProcess:
         :return:
         """
         self.sentences = self.model.sent_tokenize(self.data)
-        self.result = self.sentences
+        return self.sentences
 
     def word_tokenize(self):
         """
         :return:
         """
         self.words = [self.model.word_tokenize(sent) for sent in self.sentences]
-        self.result = self.words
+        return self.words
 
     def lemmatize(self):
         pass
@@ -53,19 +52,6 @@ class PreProcess:
 
     def pos(self):
         pass
-
-    def write_to_file(self):
-        """
-        :param path:
-        :return:
-        """
-        path = os.getcwd() + '/output.txt'
-        with open(path, 'w') as outfile:
-            for value in self.result:
-                outfile.writelines(str(value))
-            outfile.close()
-        logging.getLogger().setLevel(logging.INFO)
-        logging.info(f'the result has been saved in {path}')
 
     def read_from_file(self, path=''):
         """
