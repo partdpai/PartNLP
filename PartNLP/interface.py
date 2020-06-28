@@ -286,6 +286,3 @@ class Interface:
             Pipeline(lang='Persian', package=package, processors=operations, text=data)
         app.run_server(debug=True)
 
-
-if __name__ == '__main__':
-    Interface().run()
