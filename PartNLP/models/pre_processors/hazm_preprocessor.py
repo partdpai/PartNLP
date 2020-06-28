@@ -19,7 +19,7 @@ class HAZMPreprocessor(PreProcess):
     def normalizer(self):
         normalizer = Normalizer()
         self.data = normalizer.normalize(self.data)
-        self.result = self.data
+        return self.data
 
     def stem(self):
         """
@@ -31,7 +31,7 @@ class HAZMPreprocessor(PreProcess):
             for word in words:
                 temp.append(stemmer.stem(str(word)))
             self.stem_words.append(temp)
-        self.result = self.stem_words
+        return self.stem_words
 
     def lemmatize(self):
         """
@@ -50,4 +50,4 @@ class HAZMPreprocessor(PreProcess):
                 else:
                     temp.append(word)
             self.lemmatized_words.append(temp)
-        self.result = self.lemmatized_words
+        return self.lemmatized_words

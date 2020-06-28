@@ -25,14 +25,14 @@ class STANZAPreprocessor(PreProcess):
                 tem_word.append(token.text)
             self.sentences.append(temp_sent)
             self.words.append(tem_word)
-            self.result = self.sentences
+        return self.sentences
 
     def word_tokenize(self):
         """
         Because of the word's dependency and also because of
         the stanza structure word_tokenize uses sent tokenize
         """
-        self.result = self.words
+        return self.words
 
     def pos(self):
         nlp = stanza.Pipeline(lang=self.language, processors='tokenize, pos, lemma', tokenize_pretokenized=True)
@@ -45,8 +45,8 @@ class STANZAPreprocessor(PreProcess):
                         temp.append(word.lemma.split('#')[1])
                     else:
                         temp.append(word.lemma)
-            self.lemma.append(temp)
-        self.result = self.lemma
+            self.lemmatized_words.append(temp)
+        # return lemmatized_words
 
     def lemmatize(self):
-        pass
+        return self.lemmatized_words
