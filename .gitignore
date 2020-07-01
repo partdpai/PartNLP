@@ -8,7 +8,6 @@ __pycache__/
 
 # Distribution / packaging
 .Python
-build/
 develop-eggs/
 dist/
 downloads/
@@ -147,11 +146,13 @@ make.bat
 
 LICENSE
 
-source 
-
 Makefile
 
 output.txt
 
 setup.py
+
+preprocessed/
+
+preprocessed.py
 
