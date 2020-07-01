@@ -22,13 +22,15 @@ class PARSIVARPreprocessor(PreProcess):
         self.words = [self.model.Tokenizer().tokenize_words(sent) for sent in self.sentences]
         return self.words
 
-    def normalizer(self):
+    def normalize(self):
         """
         :return:
         """
         normalizer = Normalizer()
-        self.data = normalizer.normalize(self.data)
-        return self.data
+        for line in self.data.split('\n'):
+            if line != "":
+                self.normalize_text.append(normalizer.normalize(line))
+        return self.normalize_text
 
     def stem(self):
         """

@@ -14,6 +14,7 @@ class PreProcess:
     for testing
     """
     def __init__(self, config):
+        self.normalize_text = []
         self.sentences = []
         self.words = []
         self.result = []
@@ -47,6 +48,9 @@ class PreProcess:
     def lemmatize(self):
         pass
 
+    def normalize(self):
+        pass
+        
     def stem(self):
         pass
 
@@ -60,3 +64,4 @@ class PreProcess:
         """
         if path:
             self.data = open(path, encoding='utf-8', errors='ignore').read()
+            print()

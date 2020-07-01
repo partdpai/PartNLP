@@ -16,10 +16,15 @@ class HAZMPreprocessor(PreProcess):
         super().__init__(config)
         self.model = hazm
 
-    def normalizer(self):
+    def normalize(self):
+        """
+        :return:
+        """
         normalizer = Normalizer()
-        self.data = normalizer.normalize(self.data)
-        return self.data
+        for line in self.data.split('\n'):
+            if line != "":
+                self.normalize_text.append(normalizer.normalize(line))
+        return self.normalize_text
 
     def stem(self):
         """
