@@ -7,7 +7,7 @@ from PartNLP.models.pre_processors.parsivar_preprocessor import PARSIVARPreproce
 
 NAME_TO_PACKAGE_DICT = {'HAZM': HAZM, 'PARSIVAR': PARSIVAR, 'STANZA': STANZA}
 
-NAME_TO_METHODS = {'NORMALIZE': lambda m: m.normalizer(), 'S_TOKENIZE': lambda m: m.sent_tokenize(),
+NAME_TO_METHODS = {'NORMALIZE': lambda m: m.normalize(), 'S_TOKENIZE': lambda m: m.sent_tokenize(),
                          'W_TOKENIZE': lambda m: m.word_tokenize(), 'STEM': lambda m: m.stem(),
                          'LEMMATIZE': lambda m: m.lemmatize(), 'POS': lambda m: m.pos()}
 
