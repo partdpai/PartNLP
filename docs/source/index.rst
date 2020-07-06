@@ -65,11 +65,11 @@ Simple example:
 >>> from PartNLP import Pipeline
 
 
-.. image:: _images/usage_example.png
+.. image:: images/usage_example.png
 
 
 #############
 
 
-.. image:: _images/example_of_validation.png
+.. image:: images/example_of_validation.png
 
