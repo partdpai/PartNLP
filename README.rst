@@ -7,8 +7,6 @@ PartNLP Project
 Overview
 #############
 
-    `documentation <https://partdpai.github.io/PartNLP/>`_
-
     This documentation is all about *PartNLP* package. PartNLP designes to help developers to perprocessing their text automatically! Also it has many useful features that makes perprocessing more fun! However, This is not an exhaustive description but it should show you how use the package effortlessly.
 
 
