@@ -1,6 +1,8 @@
+.. image:: https://raw.githubusercontent.com/partdpai/PartNLP/master/images/PartAiLogo.png
+    :align: center
 
 ##############################################
-PartNLP Project
+             PartNLP Project
 ##############################################
 
 
@@ -18,12 +20,12 @@ PartNLP is an integrated package uses many famous packages. Moreover, PartNLP su
 In the below table you can see all valid operations accomplishing by PartNLP and their corresponder packages.
 
 
-==============        ==============      ================================== 
+==============        ==============      ==================================
 Operations               Keyword                   Packages
 ==============        ==============      ==================================
-normalize               NORMALIZE                 HAZM, PARSIVAR 
-sent tokenize           S_TOKENIZE                HAZM, PARSIVAR, STANZA 
-word tokenize           W_TOKENIZE                HAZM, PARSIVAR, STANZA  
+normalize               NORMALIZE                 HAZM, PARSIVAR
+sent tokenize           S_TOKENIZE                HAZM, PARSIVAR, STANZA
+word tokenize           W_TOKENIZE                HAZM, PARSIVAR, STANZA
 lemmatize               LEMMATIZE                 HAZM,           STANZA
 stem                    STEM                      HAZM, PARSIVAR, STANZA
 ==============        ==============      ==================================
@@ -59,4 +61,3 @@ Simple example:
 
 
 .. image:: https://gitlab.com/mostafarahgouy/pparser/-/raw/mostafa-dev/images/validation_example_scale.png
-
