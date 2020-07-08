@@ -34,14 +34,14 @@ class PackageValidator(Validator):
 
     def check_install_resources(self):
         if self.config['package'] == 'STANZA':
-            HOME_DIR = str(Path.home())
-            DEFAULT_MODEL_DIR = os.getenv('STANZA_RESOURCES_DIR', os.path.join(HOME_DIR, 'stanza_resources/'))
-            dir = DEFAULT_MODEL_DIR
-            dir = dir + EQUIVALENT_LANGUAGES_TO_STANZA[self.config['Language']]
-            if not os.path.isdir(dir):
+            home_dir = str(Path.home())
+            default_model_dir = os.getenv('STANZA_RESOURCES_DIR', os.path.join(home_dir, 'stanza_resources/'))
+            directory = default_model_dir
+            directory = directory + EQUIVALENT_LANGUAGES_TO_STANZA[self.config['Language'].upper()]
+            if not os.path.isdir(directory):
                 lang = self.config['Language']
                 return False, f'stanza needs {Color.HEADER}{lang} resource. do you want to install(y, n){Color.ENDC}', \
-                       'install_resource'
+                              'install_resource'
         return True, '', None
 
     def prepare_input_value(self):
