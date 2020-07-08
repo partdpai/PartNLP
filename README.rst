@@ -1,4 +1,5 @@
-
+.. image:: https://github.com/partdpai/PartNLP/blob/master/images/PartAiLogo.png
+    
 ##############################################
 PartNLP Project
 ##############################################
