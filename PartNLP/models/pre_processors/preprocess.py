@@ -10,9 +10,6 @@ from PartNLP.models.helper.color import Color
 
 
 class PreProcess:
-    """
-    for testing
-    """
     def __init__(self, config):
         self.normalize_text = []
         self.sentences = []
