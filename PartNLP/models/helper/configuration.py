@@ -1,4 +1,4 @@
-"""In configuration script get preferred preprocessing options.
+"""In configuration script get preferred pre-processing options.
 """
 import argparse
 import os
