@@ -7,9 +7,9 @@ PartNLP Project
 Overview
 #############
 
-    `documentation <https://github.com/partdpai/PartNLP>`_
+    `documentation <https://partdpai.github.io/PartNLP/>`_
 
-    This documentation is all about *PartNLP* package. PartNLP designes to help developers to perprocessing their text automatically! Also it has many useful features that makes perprocessing more fun! However, This is not an exhaustive description but it should show you how use the package effortlessly.
+    This documentation is all about *PartNLP* package. PartNLP designs to help developers to perprocessing their text automatically! Also it has many useful features that makes perprocessing more fun! However, This is not an exhaustive description but it should show you how use the package effortlessly.
 
 
 Introduction
@@ -31,9 +31,9 @@ stem                    STEM                      HAZM, PARSIVAR, STANZA
 
 Installation
 #############
-for installing, you can simpley use pip to install the package.  
+for installing, you can simply use pip to install the package.
 
->>> pip install -i https://test.pypi.org/simple/PartNLP
+>>> pip install PartNLP
 
 Usage
 #############

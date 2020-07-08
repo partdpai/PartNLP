@@ -68,4 +68,3 @@ class Pipeline:
                 outfile.write('\n')
             outfile.close()
         logging.getLogger().setLevel(logging.INFO)
-
