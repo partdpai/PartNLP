@@ -1,3 +1,18 @@
+.. PartNLP documentation master file, created by
+   sphinx-quickstart on Sun Jul 19 09:09:01 2020.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome to PartNLP's documentation!
+===================================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+.. image:: images/PartAiLogo.png
+
+
 ##############################################
 PartNLP Project
 ##############################################
