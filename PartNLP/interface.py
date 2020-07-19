@@ -285,4 +285,3 @@ class Interface:
         def pre_process_data(package, operations, data):
             Pipeline(lang='Persian', package=package, processors=operations, text=data)
         app.run_server(debug=True)
-

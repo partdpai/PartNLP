@@ -2,7 +2,7 @@
 """
 from PartNLP.models.helper.color import Color
 from PartNLP.models.validation.pos_validator import PosValidator
-from PartNLP.models.helper.constants import SUPPORTED_PROCESSORS
+from PartNLP.models.helper.constants import SUPPORTED_PROCESSORS_FOR_PACKAGES
 from PartNLP.models.validation.validator import Validator
 from PartNLP.models.validation.sent_validator import SentValidator
 from PartNLP.models.validation.word_validator import WordValidator
@@ -54,6 +54,6 @@ def config_validator(config, set_values=True, get_new_value=get_new_value_from_c
     for v_name in requires_validation:
         call_validator(v_name)
 
-    processors = [name for name in check_list if name in SUPPORTED_PROCESSORS]
+    processors = [name for name in check_list if name in SUPPORTED_PROCESSORS_FOR_PACKAGES]
     config['processors'] = processors
     config['processors'] = sorted(config['processors'], key=lambda x: name_to_validator_dic[x][0])

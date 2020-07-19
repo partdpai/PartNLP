@@ -3,10 +3,9 @@ This class validates all requirements should be passed by package.
 """
 from PartNLP.models.helper.color import Color
 from PartNLP.models.validation.validator import Validator
-from PartNLP.models.helper.constants import NAME_OF_SUPPORTED_PACKAGES
+from PartNLP.models.helper.constants import NAME_OF_SUPPORTED_PACKAGES, EQUIVALENT_LANGUAGES_TO_STANZA
 from pathlib import Path
 import stanza
-import json
 import os
 
 
@@ -15,7 +14,6 @@ class PackageValidator(Validator):
         super().__init__(config)
 
     def isvalid(self):
-        success, message, val = True, '', None
         success, message, val = self.is_name_valid()
         if success:
             return self.check_install_resources()
@@ -36,15 +34,14 @@ class PackageValidator(Validator):
 
     def check_install_resources(self):
         if self.config['package'] == 'STANZA':
-            HOME_DIR = str(Path.home())
-            DEFAULT_MODEL_DIR = os.getenv('STANZA_RESOURCES_DIR', os.path.join(HOME_DIR, 'stanza_resources/'))
-            dir = DEFAULT_MODEL_DIR
-            # rename persian language to fa and use dir = dir + self.config['Language']
-            dir = dir + 'fa'
-            if not os.path.isdir(dir):
+            home_dir = str(Path.home())
+            default_model_dir = os.getenv('STANZA_RESOURCES_DIR', os.path.join(home_dir, 'stanza_resources/'))
+            directory = default_model_dir
+            directory = directory + EQUIVALENT_LANGUAGES_TO_STANZA[self.config['Language'].upper()]
+            if not os.path.isdir(directory):
                 lang = self.config['Language']
                 return False, f'stanza needs {Color.HEADER}{lang} resource. do you want to install(y, n){Color.ENDC}', \
-                       'install_resource'
+                              'install_resource'
         return True, '', None
 
     def prepare_input_value(self):
@@ -53,7 +50,7 @@ class PackageValidator(Validator):
     def update_config_value(self, name, old_value, new_value):
         if old_value == 'install_resource':
             if new_value == 'y':
-                stanza.download('fr')
+                stanza.download(EQUIVALENT_LANGUAGES_TO_STANZA[self.config['Language']])
             else:
                 raise Exception('you can not run this package without the resources')
         else:
