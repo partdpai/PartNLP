@@ -62,8 +62,9 @@ for installing, you can simply use pip to install the package.
 
 >>> pip install PartNLP
 
-Pipeline Usage
-###############
+
+Pipeline Usage Example
+########################
 
 .. code-block:: python
 	
@@ -85,14 +86,12 @@ Pipeline asks you to fill them out.
   
 
 
-Interface Usage
-################
+Interface Usage Example
+########################
 
 In this section we are going to see the simple usage of PartNLP package.
 
 
 .. image:: https://gitlab.com/mostafarahgouy/pparser/-/raw/mostafa-dev/images/demo.gif
-
-
 
 
