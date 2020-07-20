@@ -62,27 +62,21 @@ for installing, you can simply use pip to install the package.
 
 >>> pip install PartNLP
 
-Usage
-#############
+Interface Usage
+################
 
 In this section we are going to see the simple usage of PartNLP package.
 
 .. image:: https://gitlab.com/mostafarahgouy/pparser/-/raw/mostafa-dev/images/demo.gif
 
 
+Pipeline Usage
+###############
 
-Examples
-#############
-
-Simple example:
-
->>> from PartNLP import Pipeline
-
-
-.. image:: https://gitlab.com/mostafarahgouy/pparser/-/raw/mostafa-dev/images/usage_example_scale.png
+.. code-block:: python
+	
+	from PartNLP import Pipeline
+	
+	Pipeline(lang='persian', package='hazm', processors=['W_TOKENIZE', 'LEMMATIZE'], text='این برای میتواند استفاده شود')
 
 
-#############
-
-
-.. image:: https://gitlab.com/mostafarahgouy/pparser/-/raw/mostafa-dev/images/validation_example_scale.png
