@@ -62,6 +62,29 @@ for installing, you can simply use pip to install the package.
 
 >>> pip install PartNLP
 
+Pipeline Usage
+###############
+
+.. code-block:: python
+	
+	>>> from PartNLP import Pipeline
+	
+	>>> Pipeline(lang='persian', package='hazm', processors=['W_TOKENIZE', 'LEMMATIZE'], text='این برای میتواند استفاده شود')
+
+Pipeline also can handle missing required data in which should be passed by users. In the below example no `package`, `language` or `processors` entered but
+Pipeline asks you to fill them out.
+
+.. code-block:: python
+  
+   >>> Pipeline(text='این برای میتواند استفاده شود')
+  ‌Warning: no package selected. ‌List of supported packages:['HAZM', 'PARSIVAR', 'STANZA']
+  please enter a valid value: 'hazm'
+  ‌Warning: no language selected. ‌List of supported languages:['ENGLISH', 'PERSIAN']
+  please enter a valid value: 'persian'
+  ‌Warning: no operator selected. ‌List of supported operations for 'hazm' package :['NORMALIZE', 'S_TOKENIZE', 'STEM', 'W_TOKENIZE', 'LEMMATIZE']
+  
+
+
 Interface Usage
 ################
 
@@ -71,13 +94,5 @@ In this section we are going to see the simple usage of PartNLP package.
 .. image:: https://gitlab.com/mostafarahgouy/pparser/-/raw/mostafa-dev/images/demo.gif
 
 
-Pipeline Usage
-###############
-
-.. code-block:: python
-	
-	from PartNLP import Pipeline
-	
-	Pipeline(lang='persian', package='hazm', processors=['W_TOKENIZE', 'LEMMATIZE'], text='این برای میتواند استفاده شود')
 
 
