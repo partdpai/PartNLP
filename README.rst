@@ -67,6 +67,7 @@ Interface Usage
 
 In this section we are going to see the simple usage of PartNLP package.
 
+
 .. image:: https://gitlab.com/mostafarahgouy/pparser/-/raw/mostafa-dev/images/demo.gif
 
 
