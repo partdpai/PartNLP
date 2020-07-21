@@ -36,7 +36,6 @@ class PARSIVARPreprocessor(PreProcess):
         """
         :return:
         """
-        print('hi')
         stemmer = FindStems()
         for words in self.words:
             temp = []
