@@ -93,5 +93,3 @@ In this section we are going to see the simple usage of PartNLP package.
 
 
 .. image:: https://gitlab.partdp.ai/naturallanguageprocessing/preprocess/preprocess_ai/raw/version-0.1/images/Interface.gif
-
-.. image:: /preprocess_ai/raw/version-0.1/images/Interface.gif
