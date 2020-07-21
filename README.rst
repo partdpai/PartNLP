@@ -92,5 +92,6 @@ Interface Usage Example
 In this section we are going to see the simple usage of PartNLP package.
 
 
-.. image:: https://gitlab.com/mostafarahgouy/pparser/-/raw/mostafa-dev/images/demo.gif
+.. image:: https://gitlab.partdp.ai/naturallanguageprocessing/preprocess/preprocess_ai/raw/version-0.1/images/Interface.gif
 
+.. image:: /preprocess_ai/raw/version-0.1/images/Interface.gif
