@@ -1,3 +1,8 @@
+"""
+        SEMANTIC SEARCH ENGINE
+            AUTHORS:
+                MOSTAFA & SAMAN
+"""
 from PartNLP.models.validation.validator import Validator
 from PartNLP.models.helper.constants import SUPPORTED_PROCESSORS_FOR_PACKAGES
 from PartNLP.models.helper.color import Color

@@ -1,3 +1,8 @@
+"""
+        SEMANTIC SEARCH ENGINE
+            AUTHORS:
+                MOSTAFA & SAMAN
+"""
 import time
 import concurrent.futures
 import functools

@@ -1,3 +1,8 @@
+"""
+        SEMANTIC SEARCH ENGINE
+            AUTHORS:
+                MOSTAFA & SAMAN
+"""
 import sys
 import time
 import threading

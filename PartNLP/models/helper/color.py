@@ -1,3 +1,8 @@
+"""
+        SEMANTIC SEARCH ENGINE
+            AUTHORS:
+                MOSTAFA & SAMAN
+"""
 class Color:
     HEADER = '\033[95m'
     BLUE = '\033[94m'

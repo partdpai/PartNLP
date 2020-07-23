@@ -1,5 +1,7 @@
 """
-This class validates all requirements should be passed by normalize class.
+        SEMANTIC SEARCH ENGINE
+            AUTHORS:
+                MOSTAFA & SAMAN
 """
 from PartNLP.models.validation.validator import Validator
 

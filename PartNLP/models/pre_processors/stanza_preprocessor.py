@@ -1,4 +1,7 @@
-"""Using Stanza to preprocessing documents.
+"""
+        SEMANTIC SEARCH ENGINE
+            AUTHORS:
+                MOSTAFA & SAMAN
 """
 from PartNLP.models.pre_processors.preprocess import PreProcess
 from PartNLP.models.helper.color import Color

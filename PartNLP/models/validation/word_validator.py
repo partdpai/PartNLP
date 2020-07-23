@@ -1,5 +1,7 @@
 """
-This class checks all requirements should be passed by word_tokenize.
+        SEMANTIC SEARCH ENGINE
+            AUTHORS:
+                MOSTAFA & SAMAN
 """
 from PartNLP.models.validation.validator import Validator
 
