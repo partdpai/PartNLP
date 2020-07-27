@@ -70,7 +70,13 @@ Pipeline Usage Example
 
 	>>> from PartNLP import Pipeline
 
-	>>> Pipeline(lang='persian', package='hazm', processors=['W_TOKENIZE', 'LEMMATIZE'], text='این متن، جهت بررسی عملکرد بسته نوشته شده است.')
+	>>> Pipeline(lang='persian', package='hazm', processors=['W_TOKENIZE', 'LEMMATIZE'], text='این متن، جهت بررسی عملکرد بسته نوشته شده است')
+
+        Output of Hazm's word tokenizer:
+        ['این', 'متن', '،', 'جهت', 'بررسی', 'عملکرد', 'بسته', 'است_شده__نوشته']
+        Output of Hazm's Lemmatizer :
+        ['این', 'متن', '،', 'جهت', 'بررسی', 'عملکرد', 'بسته', 'نویس']
+
 
 Pipeline also can handle missing required data in which should be passed by users. In the below example no `package`, `language` or `processors` entered but
 Pipeline asks you to fill them out.
@@ -92,4 +98,4 @@ Interface Usage Example
 In this section we are going to see the simple usage of PartNLP package.
 
 
-.. image:: https://gitlab.partdp.ai/naturallanguageprocessing/preprocess/preprocess_ai/raw/version-0.1/images/Interface.gif
+.. image:: https://raw.githubusercontent.com/partdpai/PartNLP/master/images/Interface.gif
