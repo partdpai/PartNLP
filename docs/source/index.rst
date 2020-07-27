@@ -10,7 +10,7 @@ Welcome to PartNLP's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-.. image:: images/PartAiLogo.png
+.. image:: https://raw.githubusercontent.com/partdpai/PartNLP/master/images/PartAILogo.png
 
 
 ##############################################
