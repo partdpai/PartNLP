@@ -1,5 +1,8 @@
 """
-This class checks all requirements should be passed by the sentences_tokenizer."""
+        SEMANTIC SEARCH ENGINE
+            AUTHORS:
+                MOSTAFA & SAMAN
+"""
 from PartNLP.models.validation.validator import Validator
 
 

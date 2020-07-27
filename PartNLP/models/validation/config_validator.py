@@ -1,4 +1,7 @@
-"""This function uses to find all the needed validators based on config.
+"""
+        SEMANTIC SEARCH ENGINE
+            AUTHORS:
+                MOSTAFA & SAMAN
 """
 from PartNLP.models.helper.color import Color
 from PartNLP.models.validation.pos_validator import PosValidator
@@ -28,6 +31,11 @@ name_to_validator_dic = {
 
 
 def get_new_value_from_cmd(message):
+    """
+    Args:
+        message:
+    Returns:
+    """
     print(message)
     return input('Please enter a valid value:')
 
@@ -37,7 +45,7 @@ def config_validator(config, set_values=True, get_new_value=get_new_value_from_c
 
     def call_validator(v_name):
         # set and validate
-        print(f'{Color.Yellow}validating {v_name} in process...{Color.ENDC}')
+        # print(f'{Color.Yellow}validating {v_name} in process...{Color.ENDC}')
         validator = name_to_validator_dic[v_name][1](config)
         success, message, val = validator.isvalid()
         while not success:

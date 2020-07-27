@@ -1,3 +1,8 @@
+"""
+        SEMANTIC SEARCH ENGINE
+            AUTHORS:
+                MOSTAFA & SAMAN
+"""
 import os
 import dash
 import base64
@@ -45,7 +50,7 @@ class Interface:
         app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 
         app.layout = html.Div([
-                html.Div([dbc.ButtonGroup([dbc.Button("ENGLISH"), dbc.Button("PERSIAN")],),
+            html.Div([dbc.ButtonGroup([dbc.Button("ENGLISH"), dbc.Button("PERSIAN")],),
                           ], style={'float': 'right'}),
 
             html.Div([
