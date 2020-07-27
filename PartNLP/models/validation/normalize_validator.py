@@ -1,5 +1,5 @@
 """
-        SEMANTIC SEARCH ENGINE
+        PartNLP
             AUTHORS:
                 MOSTAFA & SAMAN
 """
