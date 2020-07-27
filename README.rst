@@ -47,9 +47,9 @@ Pipeline Usage Example
 
 	>>> Pipeline(lang='persian', package='hazm', processors=['W_TOKENIZE', 'LEMMATIZE'], text='این متن، جهت بررسی عملکرد بسته نوشته شده است')
 
-        Output of Hazm's word tokenizer:
-        ['این', 'متن', '،', 'جهت', 'بررسی', 'عملکرد', 'بسته', 'است_شده__نوشته']
-        Output of Hazm's Lemmatizer :
+        Output of Hazm word tokenizer:
+        ['این', 'متن', '،', 'جهت', 'بررسی', 'عملکرد', 'بسته', 'نوشته_شده_است']
+        Output of Hazm Lemmatizer :
         ['این', 'متن', '،', 'جهت', 'بررسی', 'عملکرد', 'بسته', 'نویس']
 
 
@@ -58,7 +58,7 @@ Pipeline asks you to fill them out.
 
 .. code-block:: python
 
-   >>> Pipeline(text='این متن، جهت بررسی عملکرد بسته نوشته شده است.')
+   >>> Pipeline(text='این متن، جهت بررسی عملکرد بسته نوشته شده است')
   ‌Warning: no package selected. ‌List of supported packages:['HAZM', 'PARSIVAR', 'STANZA']
   please enter a valid value: 'hazm'
   ‌Warning: no language selected. ‌List of supported languages:['ENGLISH', 'PERSIAN']
