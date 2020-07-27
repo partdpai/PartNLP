@@ -3,12 +3,14 @@
             AUTHORS:
                 MOSTAFA & SAMAN
 """
-from PartNLP.models.pre_processors.preprocess import PreProcess
-from PartNLP.models.helper.color import Color
 import stanza
+from PartNLP.models.pre_processors.preprocess import PreProcess
 
 
 class STANZAPreprocessor(PreProcess):
+    """
+            STANZA
+    """
     def __init__(self, config):
         # Initialize its constructor using parent constructor.
         super().__init__(config)
@@ -18,7 +20,8 @@ class STANZAPreprocessor(PreProcess):
         """
         Returns:
         """
-        nlp = self.model.Pipeline(lang=self.language, processors='tokenize')
+        nlp = self.model.Pipeline(lang=self.language, processors='tokenize',
+                                  logging_level='WARNING')
         doc = nlp(self.data)
         for sentence in doc.sentences:
             temp_sent = ''
@@ -38,7 +41,8 @@ class STANZAPreprocessor(PreProcess):
         return self.words
 
     def pos(self):
-        nlp = stanza.Pipeline(lang=self.language, processors='tokenize, pos, lemma', tokenize_pretokenized=True)
+        nlp = stanza.Pipeline(lang=self.language, processors='tokenize, pos, lemma',
+                              tokenize_pretokenized=True, logging_level='WARNING')
         doc = nlp(self.words)
         for sentence in doc.sentences:
             temp = []
