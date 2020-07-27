@@ -1,11 +1,12 @@
 """
-Using Hazm to preprocessing the persian data.
+        SEMANTIC SEARCH ENGINE
+            AUTHORS:
+                MOSTAFA & SAMAN
 """
 from __future__ import unicode_literals
+import hazm
 from hazm import Stemmer, Normalizer, Lemmatizer
 from PartNLP.models.pre_processors.preprocess import PreProcess
-from PartNLP.models.helper.color import Color
-import hazm
 
 
 class HAZMPreprocessor(PreProcess):

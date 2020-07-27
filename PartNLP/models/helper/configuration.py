@@ -1,4 +1,7 @@
-"""In configuration script get preferred pre-processing options.
+"""
+        SEMANTIC SEARCH ENGINE
+            AUTHORS:
+                MOSTAFA & SAMAN
 """
 import argparse
 import os

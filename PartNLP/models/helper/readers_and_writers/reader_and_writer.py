@@ -1,0 +1,83 @@
+"""
+        SEMANTIC SEARCH ENGINE
+            AUTHORS:
+                MOSTAFA & SAMAN
+"""
+from abc import ABC, abstractmethod
+from dataclasses import dataclass
+from typing import List
+
+
+@dataclass
+class InputDocument:
+    """
+            InputDocument = {path: path of input data,
+            type: type of input data file(txt, json, ...),
+            separator: }
+    """
+    path: str
+    type: any
+    separator = '\n'
+
+
+@dataclass
+class Types:
+    """
+        Types
+    """
+    txt_type = 'txt'
+    json_type = 'json'
+
+
+@dataclass
+class Document:
+    """
+            Document = {text: list of strings separated by a specified separator,
+                        type: type of document(txt, json, ...)}
+    """
+    text: List[str]
+    type: any
+
+
+@dataclass
+class OutPutDocument:
+    """
+            OutPutDocument = {}
+    """
+    output_value: List[str]
+    operation: str
+    package: str
+
+
+class Reader(ABC):
+    """
+            Reader interface
+    """
+    def __init__(self):
+        pass
+
+    @abstractmethod
+    def read_data(self, data) -> Document:
+        """
+        Args:
+            data: An object of InputDocument
+        Returns:
+            Document: An object of Document
+        """
+
+
+class Writer(ABC):
+    """
+            Reader interface
+    """
+    def __init__(self):
+        pass
+
+    @abstractmethod
+    def write_data(self, result_data):
+        """
+        Args:
+            result_data: An object of InputDocument
+        Returns:
+            Document: An object of Document
+        """
