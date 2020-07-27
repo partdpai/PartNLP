@@ -14,12 +14,13 @@ NAME_TO_METHODS = {'NORMALIZE': lambda m: m.normalize(), 'S_TOKENIZE': lambda m:
 SUPPORTED_LANGUAGES_TO_PACKAGES = {'PERSIAN': ['HAZM', 'PARSIVAR', 'STANZA'], 'ENGLISH': ['STANZA']}
 SUPPORTED_PROCESSORS_FOR_PACKAGES = {'HAZM': ['NORMALIZE', 'S_TOKENIZE', 'STEM', 'W_TOKENIZE', 'LEMMATIZE'],
                                      'PARSIVAR': ['NORMALIZE', 'S_TOKENIZE', 'STEM', 'W_TOKENIZE'],
-                                     'STANZA': ['S_TOKENIZE', 'STEM', 'W_TOKENIZE', 'LEMMATIZE']
+                                     'STANZA': ['S_TOKENIZE', 'W_TOKENIZE', 'LEMMATIZE']
                                      }
 SUPPORTED_PROCESSORS = ['NORMALIZE', 'S_TOKENIZE', 'STEM', 'W_TOKENIZE', 'LEMMATIZE']
 NAME_OF_SUPPORTED_LANGUAGES = ['ENGLISH', 'PERSIAN']
 NAME_OF_SUPPORTED_PACKAGES = ['HAZM', 'PARSIVAR', 'STANZA']
 EQUIVALENT_LANGUAGES_TO_STANZA = {'ENGLISH': 'en', 'PERSIAN': 'fa'}
 
-PROCESSORS_TO_LABELS = {'S_TOKENIZE': 'Sent tokenize', 'STEM': 'Stem', 'W_TOKENIZE': 'Word tokenize',
+PROCESSORS_TO_LABELS = {'S_TOKENIZE': 'Sent tokenize', 'STEM': 'Stem',
+                        'W_TOKENIZE': 'Word tokenize',
                         'NORMALIZE': 'Normalize', 'LEMMATIZE': 'Lemma'}

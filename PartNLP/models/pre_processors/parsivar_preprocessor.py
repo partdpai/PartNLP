@@ -1,4 +1,7 @@
-"""Using Parsivar to preprocessing document.
+"""
+        SEMANTIC SEARCH ENGINE
+            AUTHORS:
+                MOSTAFA & SAMAN
 """
 from parsivar import Normalizer, FindStems
 from PartNLP.models.pre_processors.preprocess import PreProcess

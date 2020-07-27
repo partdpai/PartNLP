@@ -1,5 +1,7 @@
 """
-This class validates all requirements should be passed by package.
+        SEMANTIC SEARCH ENGINE
+            AUTHORS:
+                MOSTAFA & SAMAN
 """
 from PartNLP.models.helper.color import Color
 from PartNLP.models.validation.validator import Validator
