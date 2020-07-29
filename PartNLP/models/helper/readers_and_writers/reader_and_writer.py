@@ -49,9 +49,9 @@ class OutPutDocument:
     package: str
 
 
-class Reader(ABC):
+class ReaderAndWriter(ABC):
     """
-            Reader interface
+            ReaderAndWriter interface
     """
     def __init__(self):
         pass
@@ -64,14 +64,6 @@ class Reader(ABC):
         Returns:
             Document: An object of Document
         """
-
-
-class Writer(ABC):
-    """
-            Reader interface
-    """
-    def __init__(self):
-        pass
 
     @abstractmethod
     def write_data(self, result_data):
