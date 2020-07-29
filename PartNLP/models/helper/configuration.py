@@ -19,7 +19,8 @@ def get_config():
         'InputFilePath': args.input,
         'OutputFilePath': args.output,
         'package': args.package,
-        'processors': []
+        'processors': [],
+        'InputFileFormat': ''
     }
     return config
 
