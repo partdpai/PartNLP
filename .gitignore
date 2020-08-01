@@ -2,10 +2,11 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+temp.py
 # C extensions
 *.so
-
+Sphinx/
+.gitignore
 # Distribution / packaging
 .Python
 develop-eggs/
