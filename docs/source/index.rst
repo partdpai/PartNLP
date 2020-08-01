@@ -120,5 +120,13 @@ Interface Usage Example
 
 In this section we are going to see the simple usage of PartNLP package.
 
+.. image:: images/demo.gif
+
+
+
+Examples
+#############
+
+Simple example:
 
 .. image:: images/Interface.gif

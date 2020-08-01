@@ -5,6 +5,7 @@ __pycache__/
 temp.py
 # C extensions
 *.so
+temp.py
 Sphinx/
 .gitignore
 # Distribution / packaging
