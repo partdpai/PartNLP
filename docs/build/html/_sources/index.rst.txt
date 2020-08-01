@@ -6,6 +6,8 @@
 Welcome to PartNLP's documentation!
 ===================================
 
+
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
@@ -81,32 +83,39 @@ This section provides a list of possible features supported by PartNLP. It able 
 
 Installation
 #############
-for installing, you can simpley use pip to install the package.
+for installing, you can simply use pip to install the package.
 
->>> pip install -i https://test.pypi.org/simple/PartNLP
+>>> pip install PartNLP
 
-Usage
-#############
+
+Pipeline Usage Example
+########################
+
+.. code-block:: python
+
+	>>> from PartNLP import Pipeline
+
+	>>> Pipeline(lang='persian', package='hazm', processors=['W_TOKENIZE', 'LEMMATIZE'], text='این متن، جهت بررسی عملکرد بسته نوشته شده است.')
+
+Pipeline also can handle missing required data in which should be passed by users. In the below example no `package`, `language` or `processors` entered but
+Pipeline asks you to fill them out.
+
+.. code-block:: python
+
+   >>> Pipeline(text='این متن، جهت بررسی عملکرد بسته نوشته شده است.')
+  ‌Warning: no package selected. ‌List of supported packages:['HAZM', 'PARSIVAR', 'STANZA']
+  please enter a valid value: 'hazm'
+  ‌Warning: no language selected. ‌List of supported languages:['ENGLISH', 'PERSIAN']
+  please enter a valid value: 'persian'
+  ‌Warning: no operator selected. ‌List of supported operations for 'hazm' package :['NORMALIZE', 'S_TOKENIZE', 'STEM', 'W_TOKENIZE', 'LEMMATIZE']
+
+
+
+Interface Usage Example
+########################
 
 In this section we are going to see the simple usage of PartNLP package.
 
-.. image:: images/demo.gif
 
-
-
-Examples
-#############
-
-Simple example:
-
->>> from PartNLP import Pipeline
-
-
-.. image:: images/usage_example.png
-
-
-#############
-
-
-.. image:: images/example_of_validation.png
+.. image:: images/Interface.gif
 

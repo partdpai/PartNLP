@@ -7,11 +7,11 @@
     <title>Welcome to PartNLP’s documentation! &#8212; PartNLP 0.1.10 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
    
@@ -121,25 +121,33 @@ In the below table you can see all valid operations accomplishing by PartNLP and
 </div>
 <div class="section" id="installation">
 <h3>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h3>
-<p>for installing, you can simpley use pip to install the package.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">i</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">test</span><span class="o">.</span><span class="n">pypi</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">simple</span><span class="o">/</span><span class="n">PartNLP</span>
+<p>for installing, you can simply use pip to install the package.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pip</span> <span class="n">install</span> <span class="n">PartNLP</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="usage">
-<h3>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="pipeline-usage-example">
+<h3>Pipeline Usage Example<a class="headerlink" href="#pipeline-usage-example" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">PartNLP</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Pipeline</span><span class="p">(</span><span class="n">lang</span><span class="o">=</span><span class="s1">&#39;persian&#39;</span><span class="p">,</span> <span class="n">package</span><span class="o">=</span><span class="s1">&#39;hazm&#39;</span><span class="p">,</span> <span class="n">processors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;W_TOKENIZE&#39;</span><span class="p">,</span> <span class="s1">&#39;LEMMATIZE&#39;</span><span class="p">],</span> <span class="n">text</span><span class="o">=</span><span class="s1">&#39;این متن، جهت بررسی عملکرد بسته نوشته شده است.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Pipeline also can handle missing required data in which should be passed by users. In the below example no <cite>package</cite>, <cite>language</cite> or <cite>processors</cite> entered but
+Pipeline asks you to fill them out.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> &gt;&gt;&gt; Pipeline(text=&#39;این متن، جهت بررسی عملکرد بسته نوشته شده است.&#39;)
+‌Warning: no package selected. ‌List of supported packages:[&#39;HAZM&#39;, &#39;PARSIVAR&#39;, &#39;STANZA&#39;]
+please enter a valid value: &#39;hazm&#39;
+‌Warning: no language selected. ‌List of supported languages:[&#39;ENGLISH&#39;, &#39;PERSIAN&#39;]
+please enter a valid value: &#39;persian&#39;
+‌Warning: no operator selected. ‌List of supported operations for &#39;hazm&#39; package :[&#39;NORMALIZE&#39;, &#39;S_TOKENIZE&#39;, &#39;STEM&#39;, &#39;W_TOKENIZE&#39;, &#39;LEMMATIZE&#39;]
+</pre></div>
+</div>
+</div>
+<div class="section" id="interface-usage-example">
+<h3>Interface Usage Example<a class="headerlink" href="#interface-usage-example" title="Permalink to this headline">¶</a></h3>
 <p>In this section we are going to see the simple usage of PartNLP package.</p>
-<img alt="_images/demo.gif" src="_images/demo.gif" />
-</div>
-<div class="section" id="examples">
-<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
-<p>Simple example:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">PartNLP</span> <span class="kn">import</span> <span class="n">Pipeline</span>
-</pre></div>
-</div>
-<img alt="_images/usage_example.png" src="_images/usage_example.png" />
-<hr class="docutils" />
-<img alt="_images/example_of_validation.png" src="_images/example_of_validation.png" />
+<img alt="_images/Interface.gif" src="_images/Interface.gif" />
 </div>
 </div>
 </div>
@@ -178,7 +186,7 @@ In the below table you can see all valid operations accomplishing by PartNLP and
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script type="text/javascript">$('#searchbox').show(0);</script>
 
 
 
@@ -195,7 +203,7 @@ In the below table you can see all valid operations accomplishing by PartNLP and
       &copy;2020, Mostafa Rahgouy.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.0</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
