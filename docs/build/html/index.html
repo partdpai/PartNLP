@@ -34,7 +34,7 @@
 <h1>Welcome to PartNLP’s documentation!<a class="headerlink" href="#welcome-to-partnlp-s-documentation" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<img alt="https://raw.githubusercontent.com/partdpai/PartNLP/master/images/PartAILogo.png" src="https://raw.githubusercontent.com/partdpai/PartNLP/master/images/PartAILogo.png" />
+<img alt="_images/PartAILogo.png" src="_images/PartAILogo.png" />
 <div class="section" id="partnlp-project">
 <h2>PartNLP Project<a class="headerlink" href="#partnlp-project" title="Permalink to this headline">¶</a></h2>
 <embed>
@@ -130,12 +130,17 @@ In the below table you can see all valid operations accomplishing by PartNLP and
 <h3>Pipeline Usage Example<a class="headerlink" href="#pipeline-usage-example" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">PartNLP</span> <span class="kn">import</span> <span class="n">Pipeline</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Pipeline</span><span class="p">(</span><span class="n">lang</span><span class="o">=</span><span class="s1">&#39;persian&#39;</span><span class="p">,</span> <span class="n">package</span><span class="o">=</span><span class="s1">&#39;hazm&#39;</span><span class="p">,</span> <span class="n">processors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;W_TOKENIZE&#39;</span><span class="p">,</span> <span class="s1">&#39;LEMMATIZE&#39;</span><span class="p">],</span> <span class="n">text</span><span class="o">=</span><span class="s1">&#39;این متن، جهت بررسی عملکرد بسته نوشته شده است.&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Pipeline</span><span class="p">(</span><span class="n">lang</span><span class="o">=</span><span class="s1">&#39;persian&#39;</span><span class="p">,</span> <span class="n">package</span><span class="o">=</span><span class="s1">&#39;hazm&#39;</span><span class="p">,</span> <span class="n">processors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;W_TOKENIZE&#39;</span><span class="p">,</span> <span class="s1">&#39;LEMMATIZE&#39;</span><span class="p">],</span> <span class="n">text</span><span class="o">=</span><span class="s1">&#39;این متن، جهت بررسی عملکرد بسته نوشته شده است&#39;</span><span class="p">)</span>
+
+<span class="go">Output of Hazm word tokenizer:</span>
+<span class="go">[&#39;این&#39;, &#39;متن&#39;, &#39;،&#39;, &#39;جهت&#39;, &#39;بررسی&#39;, &#39;عملکرد&#39;, &#39;بسته&#39;, &#39;نوشته_شده_است&#39;]</span>
+<span class="go">Output of Hazm Lemmatizer :</span>
+<span class="go">[&#39;این&#39;, &#39;متن&#39;, &#39;،&#39;, &#39;جهت&#39;, &#39;بررسی&#39;, &#39;عملکرد&#39;, &#39;بسته&#39;, &#39;نویس&#39;]</span>
 </pre></div>
 </div>
 <p>Pipeline also can handle missing required data in which should be passed by users. In the below example no <cite>package</cite>, <cite>language</cite> or <cite>processors</cite> entered but
 Pipeline asks you to fill them out.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> &gt;&gt;&gt; Pipeline(text=&#39;این متن، جهت بررسی عملکرد بسته نوشته شده است.&#39;)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> &gt;&gt;&gt; Pipeline(text=&#39;این متن، جهت بررسی عملکرد بسته نوشته شده است&#39;)
 ‌Warning: no package selected. ‌List of supported packages:[&#39;HAZM&#39;, &#39;PARSIVAR&#39;, &#39;STANZA&#39;]
 please enter a valid value: &#39;hazm&#39;
 ‌Warning: no language selected. ‌List of supported languages:[&#39;ENGLISH&#39;, &#39;PERSIAN&#39;]
@@ -147,6 +152,11 @@ please enter a valid value: &#39;persian&#39;
 <div class="section" id="interface-usage-example">
 <h3>Interface Usage Example<a class="headerlink" href="#interface-usage-example" title="Permalink to this headline">¶</a></h3>
 <p>In this section we are going to see the simple usage of PartNLP package.</p>
+<img alt="_images/demo.gif" src="_images/demo.gif" />
+</div>
+<div class="section" id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<p>Simple example:</p>
 <img alt="_images/Interface.gif" src="_images/Interface.gif" />
 </div>
 </div>

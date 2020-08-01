@@ -6,13 +6,11 @@
 Welcome to PartNLP's documentation!
 ===================================
 
-
-
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
-.. image:: https://raw.githubusercontent.com/partdpai/PartNLP/master/images/PartAILogo.png
+.. image:: images/PartAILogo.png
 
 
 ##############################################
@@ -95,14 +93,20 @@ Pipeline Usage Example
 
 	>>> from PartNLP import Pipeline
 
-	>>> Pipeline(lang='persian', package='hazm', processors=['W_TOKENIZE', 'LEMMATIZE'], text='این متن، جهت بررسی عملکرد بسته نوشته شده است.')
+	>>> Pipeline(lang='persian', package='hazm', processors=['W_TOKENIZE', 'LEMMATIZE'], text='این متن، جهت بررسی عملکرد بسته نوشته شده است')
+
+        Output of Hazm word tokenizer:
+        ['این', 'متن', '،', 'جهت', 'بررسی', 'عملکرد', 'بسته', 'نوشته_شده_است']
+        Output of Hazm Lemmatizer :
+        ['این', 'متن', '،', 'جهت', 'بررسی', 'عملکرد', 'بسته', 'نویس']
+
 
 Pipeline also can handle missing required data in which should be passed by users. In the below example no `package`, `language` or `processors` entered but
 Pipeline asks you to fill them out.
 
 .. code-block:: python
 
-   >>> Pipeline(text='این متن، جهت بررسی عملکرد بسته نوشته شده است.')
+   >>> Pipeline(text='این متن، جهت بررسی عملکرد بسته نوشته شده است')
   ‌Warning: no package selected. ‌List of supported packages:['HAZM', 'PARSIVAR', 'STANZA']
   please enter a valid value: 'hazm'
   ‌Warning: no language selected. ‌List of supported languages:['ENGLISH', 'PERSIAN']
@@ -115,6 +119,15 @@ Interface Usage Example
 ########################
 
 In this section we are going to see the simple usage of PartNLP package.
+
+.. image:: images/demo.gif
+
+
+
+Examples
+#############
+
+Simple example:
 
 
 .. image:: images/Interface.gif

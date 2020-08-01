@@ -129,4 +129,6 @@ Examples
 
 Simple example:
 
+
 .. image:: images/Interface.gif
+
