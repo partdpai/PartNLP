@@ -120,6 +120,8 @@ Interface Usage Example
 
 In this section we are going to see the simple usage of PartNLP package.
 
+.. image:: _images/Interface.gif
+
 .. image:: images/Interface.gif
 
 
