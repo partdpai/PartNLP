@@ -122,4 +122,3 @@ In this section we are going to see the simple usage of PartNLP package.
 
 .. image:: images/Interface.gif
 
-
