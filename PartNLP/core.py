@@ -44,8 +44,7 @@ class Pipeline:
      """
     def __init__(self, input_file_path, input_file_format, lang='persian',
                  package='HAZM', processors=[], **kwargs):
-        self.output_list = []
-        self.document = []
+        self.output_list, self.document = [], []
         config = self.__initialize_config(input_file_path, input_file_format,
                                           lang, package, processors)
         config_validator(config)
@@ -69,7 +68,7 @@ class Pipeline:
         logging.info(f'the result has been saved in {os.getcwd()}/preprocessed folder')
 
     def __initialize_config(self, input_file_path, input_file_format,
-                            lang='persian', package='HAZM', processors=[]):
+                            lang, package, processors):
         config = configuration.get_config()
         config['InputFileFormat'] = input_file_format
         config['processors'] = processors
