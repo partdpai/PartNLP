@@ -5,13 +5,14 @@
 """
 import os
 import logging
+from tqdm import tqdm
 from PartNLP.models.helper import configuration
 from PartNLP.models.validation.config_validator import config_validator
 from PartNLP.models.helper.constants import NAME_TO_PACKAGE_DICT, \
     NAME_TO_METHODS, NAME_TO_READER_AND_WRITER
 from PartNLP.models.helper.readers_and_writers.reader_and_writer \
     import InputDocument, OutPutDocument
-from PartNLP.models.helper.utils import batch_data
+from PartNLP.models.helper.time_and_usage_profiling import profile
 
 
 class Pipeline:
@@ -41,22 +42,23 @@ class Pipeline:
 
         # >>> Pipeline(package='HAZM', text=text, processors=['S_TOKENIZE', 'W_TOKENIZE'])
      """
-    def __init__(self, input_file_path, input_file_format, lang='persian', package='HAZM', processors=[], **kwargs):
+    def __init__(self, input_file_path, input_file_format, lang='persian',
+                 package='HAZM', processors=[], **kwargs):
         self.output_list = []
         self.document = []
         config = self.__initialize_config(input_file_path, input_file_format,
                                           lang, package, processors)
         config_validator(config)
         self.reader_writer_obj = NAME_TO_READER_AND_WRITER[config['InputFileFormat']]()
-        self.document = self.reader_writer_obj.read_data(InputDocument(
-            config['InputFilePath'], config['InputFileFormat']))
         self._work_flow(config, self.output_list)
 
+    @profile
     def _work_flow(self, config, output_list):
         processors, package = config['processors'], config['package']
         # Execute selected operator by calling its corresponded method
         os.makedirs(os.getcwd() + '/preprocessed', exist_ok=True)
-        for lines in batch_data(self.document.text, batch_size=1):
+        data = InputDocument(config['InputFilePath'], config['InputFileFormat'])
+        for lines in tqdm(self.reader_writer_obj.read_data(data, batch_size=10000000)):
             config['text'] = '\n'.join(lines)
             model = NAME_TO_PACKAGE_DICT[package](config)
             for operation in processors:

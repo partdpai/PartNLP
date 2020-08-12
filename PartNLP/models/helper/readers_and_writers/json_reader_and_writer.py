@@ -18,7 +18,7 @@ class JsonReaderAndWriter(ReaderAndWriter):
         super(JsonReaderAndWriter, self).__init__()
         self.docs = []
 
-    def read_data(self, data) -> Document:
+    def read_data(self, data, batch_size) -> Document:
         """
         Args:
             data: An object of InputDocument
