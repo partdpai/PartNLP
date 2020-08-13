@@ -28,3 +28,5 @@ EQUIVALENT_LANGUAGES_TO_STANZA = {'ENGLISH': 'en', 'PERSIAN': 'fa'}
 PROCESSORS_TO_LABELS = {'S_TOKENIZE': 'Sent tokenize', 'STEM': 'Stem',
                         'W_TOKENIZE': 'Word tokenize',
                         'NORMALIZE': 'Normalize', 'LEMMATIZE': 'Lemma'}
+
+STANZA_RESOURCE_NAMES = {'persian': 'fa', 'english': 'en'}
