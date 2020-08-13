@@ -49,29 +49,21 @@ class OutPutDocument:
     package: str
 
 
-class Reader(ABC):
+class ReaderAndWriter(ABC):
     """
-            Reader interface
+            ReaderAndWriter interface
     """
     def __init__(self):
         pass
 
     @abstractmethod
-    def read_data(self, data) -> Document:
+    def read_data(self, data, batch_size) -> Document:
         """
         Args:
             data: An object of InputDocument
         Returns:
             Document: An object of Document
         """
-
-
-class Writer(ABC):
-    """
-            Reader interface
-    """
-    def __init__(self):
-        pass
 
     @abstractmethod
     def write_data(self, result_data):
