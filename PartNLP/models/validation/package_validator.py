@@ -5,8 +5,8 @@
 """
 from PartNLP.models.helper.color import Color
 from PartNLP.models.validation.validator import Validator
-from PartNLP.models.helper.constants import NAME_OF_SUPPORTED_PACKAGES,\
-    EQUIVALENT_LANGUAGES_TO_STANZA, STANZA_RESOURCE_NAMES
+from PartNLP.models.helper.constants import NAME_OF_SUPPORTED_PACKAGES, \
+    EQUIVALENT_LANGUAGES_TO_STANZA
 from pathlib import Path
 import stanza
 import os
@@ -53,8 +53,7 @@ class PackageValidator(Validator):
     def update_config_value(self, name, old_value, new_value):
         if old_value == 'install_resource':
             if new_value == 'y':
-                stanza.download(EQUIVALENT_LANGUAGES_TO_STANZA[
-                                    STANZA_RESOURCE_NAMES[self.config['Language'].lower()]])
+                stanza.download(EQUIVALENT_LANGUAGES_TO_STANZA[self.config['Language']])
             else:
                 raise Exception('you can not run this package without the resources')
         else:

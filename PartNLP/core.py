@@ -42,7 +42,7 @@ class Pipeline:
 
         # >>> Pipeline(package='HAZM', text=text, processors=['S_TOKENIZE', 'W_TOKENIZE'])
      """
-    def __init__(self, input_file_path, input_file_format, lang='persian',
+    def __init__(self, input_file_path, input_file_format, lang='PERSIAN',
                  package='HAZM', processors=[], **kwargs):
         self.output_list, self.document = [], []
         config = self.__initialize_config(input_file_path, input_file_format,
