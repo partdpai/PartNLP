@@ -57,7 +57,7 @@ class Pipeline:
         # Execute selected operator by calling its corresponded method
         os.makedirs(os.getcwd() + '/preprocessed', exist_ok=True)
         data = InputDocument(config['InputFilePath'], config['InputFileFormat'])
-        for lines in tqdm(self.reader_writer_obj.read_data(data, batch_size=10000000)):
+        for lines in tqdm(self.reader_writer_obj.read_data(data, batch_size=100000)):
             config['text'] = '\n'.join(lines)
             model = NAME_TO_PACKAGE_DICT[package](config)
             for operation in processors:
