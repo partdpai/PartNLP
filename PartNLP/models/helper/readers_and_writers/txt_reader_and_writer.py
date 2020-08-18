@@ -17,7 +17,7 @@ class TxtReaderAndWriter(ReaderAndWriter):
         super(TxtReaderAndWriter, self).__init__()
         self.docs = []
 
-    def read_data(self, data, batch_size=1024):
+    def read_data(self, data, batch_size):
         """
         Args:
             data: An object of InputDocument
@@ -26,10 +26,9 @@ class TxtReaderAndWriter(ReaderAndWriter):
         """
         with open(data.path, encoding='utf-8', errors='ignore') as file:
             while True:
-                self.docs = file.read(batch_size)
+                self.docs = file.readlines(batch_size)
                 if not self.docs:
                     break
-                self.docs = self.docs.split(data.separator)
                 yield self.docs
 
     def write_data(self, result_data):
