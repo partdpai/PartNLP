@@ -5,7 +5,8 @@
 """
 from PartNLP.models.helper.color import Color
 from PartNLP.models.validation.validator import Validator
-from PartNLP.models.helper.constants import NAME_OF_SUPPORTED_PACKAGES, EQUIVALENT_LANGUAGES_TO_STANZA
+from PartNLP.models.helper.constants import NAME_OF_SUPPORTED_PACKAGES, \
+    EQUIVALENT_LANGUAGES_TO_STANZA
 from pathlib import Path
 import stanza
 import os

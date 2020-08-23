@@ -18,7 +18,7 @@ PartNLP Project
 ##############################################
 .. raw:: html
 
-    <embed>
+    <embed>   
 	<div align="center">
 	    <a href="https://pypi.org/project/stanza/">
 	        <img alt="Conda Versions" src="https://img.shields.io/badge/stanza-v1.0.1-green">
@@ -120,17 +120,13 @@ Interface Usage Example
 
 In this section we are going to see the simple usage of PartNLP package.
 
-.. image:: _images/Interface.gif
-
-
 .. image:: images/demo.gif
 
 
-.. image:: _images/usage_example.png
 
-
+Examples
 #############
 
-.. image:: _images/Interface.gif
+Simple example:
 
-
+.. image:: images/Interface.gif

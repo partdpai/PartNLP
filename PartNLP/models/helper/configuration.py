@@ -19,7 +19,8 @@ def get_config():
         'InputFilePath': args.input,
         'OutputFilePath': args.output,
         'package': args.package,
-        'processors': []
+        'processors': [],
+        'InputFileFormat': ''
     }
     return config
 
@@ -34,7 +35,7 @@ def get_args():
                         default=input_default_path)
     parser.add_argument('-o', '--output', help='path to the output directory',
                         default=output_default_path)
-    parser.add_argument('-lang', '--language', default='en', help='text language')
+    parser.add_argument('-lang', '--language', default='persian', help='text language')
     parser.add_argument('-itype', '--input_type', help='input format', default='txt')
     parser.add_argument('-otype', '--output_type', help='output format', default='txt')
     parser.add_argument('-p', '--package', help='name of toolkit', default='HAZM')
