@@ -5,6 +5,7 @@
 """
 import os
 import logging
+from pathlib import Path
 from PartNLP.models.helper.readers_and_writers.reader_and_writer \
     import ReaderAndWriter, Document
 
@@ -45,3 +46,6 @@ class TxtReaderAndWriter(ReaderAndWriter):
                 outfile.write('\n')
             outfile.close()
         logging.getLogger().setLevel(logging.INFO)
+
+    def get_file_size(self, path):
+        return Path(path).stat().st_size
