@@ -4,8 +4,8 @@
                 MOSTAFA & SAMAN
 """
 import unittest
-from PartNLP.models.pre_processors.stanza_preprocessor import STANZAPreprocessor
 from PartNLP.models.helper import configuration
+from PartNLP.models.pre_processors.stanza_preprocessor import STANZAPreprocessor
 
 
 class TestHazm(unittest.TestCase):
@@ -15,6 +15,7 @@ class TestHazm(unittest.TestCase):
     def setUp(self):
         super(TestHazm, self).__init__()
         self.config = configuration.get_config()
+        self.stanza = None
 
     def test_sent_tokenize(self):
         """

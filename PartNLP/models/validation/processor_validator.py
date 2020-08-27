@@ -9,6 +9,9 @@ from PartNLP.models.helper.color import Color
 
 
 class ProcessorsValidator(Validator):
+    """
+        PROCESSORS VALIDATOR
+    """
     def __init__(self, config):
         super().__init__(config)
         self.supported_operations = SUPPORTED_PROCESSORS_FOR_PACKAGES[self.config['package']]
@@ -21,13 +24,16 @@ class ProcessorsValidator(Validator):
 
         # Check if processors is empty.
         if not self.config['processors']:
-            return False, f'{Color.FAIL}Warning{Color.ENDC} No operator selected. List of supported operations:' \
-                          f'{Color.HEADER}{self.supported_operations}{Color.ENDC}', self.config['processors']
+            return False, f'{Color.fail}Warning{Color.endc} ' \
+                          f'No operator selected. List of supported operations:' \
+                          f'{Color.header}{self.supported_operations}' \
+                          f'{Color.endc}', self.config['processors']
         # Check if whether operators of the processor are supported or not.
         for p in self.config['processors']:
             if p not in self.supported_operations:
-                return False, f'{Color.FAIL}{p}{Color.ENDC} Operator is not supported. ' \
-                              f'List of supported operators : {Color.HEADER}{self.supported_operations}{Color.ENDC}', p
+                return False, f'{Color.fail}{p}{Color.endc} Operator is not supported. ' \
+                              f'List of supported operators : {Color.header}' \
+                              f'{self.supported_operations}{Color.endc}', p
         return True, '', None
     
     def update_config_value(self, name, old_value, new_value):

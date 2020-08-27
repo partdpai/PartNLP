@@ -13,14 +13,10 @@ def get_config():
     """
     args = get_args()
     config = {
-        'text': '',
-        'Language': args.language,
-        'DatasetType': args.input_type,
-        'InputFilePath': args.input,
-        'OutputFilePath': args.output,
-        'package': args.package,
-        'processors': [],
-        'InputFileFormat': ''
+        'text': '', 'Language': args.language,
+        'InputFilePath': args.input, 'processors': [],
+        'package': args.package, 'InputFileFormat': 'TXT',
+        'use_multiprocess': True, 'OutputFilePath': args.output,
     }
     return config
 
@@ -28,11 +24,10 @@ def get_config():
 def get_args():
     """Set default values or get values from command line.
     """
-    input_default_path = ' '
     output_default_path = os.getcwd() + '/output.txt'
     parser = argparse.ArgumentParser()
     parser.add_argument('-i', '--input', help='path to input dataset',
-                        default=input_default_path)
+                        default=' ')
     parser.add_argument('-o', '--output', help='path to the output directory',
                         default=output_default_path)
     parser.add_argument('-lang', '--language', default='en', help='text language')

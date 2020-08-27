@@ -8,7 +8,11 @@ from PartNLP.models.validation.validator import Validator
 
 class NormalizeValidator(Validator):
     def __init__(self, config):
-        # self.package = config['package']
+        """
+        Args:
+            config:
+        """
+        super(NormalizeValidator, self).__init__(config)
         self.config = config
 
     def isvalid(self):

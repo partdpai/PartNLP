@@ -4,8 +4,8 @@
                 MOSTAFA & SAMAN
 """
 import unittest
-from PartNLP.models.pre_processors.hazm_preprocessor import HAZMPreprocessor
 from PartNLP.models.helper import configuration
+from PartNLP.models.pre_processors.hazm_preprocessor import HAZMPreprocessor
 
 
 class TestHazm(unittest.TestCase):
@@ -19,6 +19,7 @@ class TestHazm(unittest.TestCase):
         """
         super(TestHazm, self).__init__()
         self.config = configuration.get_config()
+        self.hazm = None
 
     def test_normalize(self):
         """

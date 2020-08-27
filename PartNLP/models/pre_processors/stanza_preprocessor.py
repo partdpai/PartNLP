@@ -12,7 +12,6 @@ class STANZAPreprocessor(PreProcess):
             STANZA
     """
     def __init__(self, config):
-        # Initialize its constructor using parent constructor.
         super().__init__(config)
         self.model = stanza
 
@@ -21,11 +20,10 @@ class STANZAPreprocessor(PreProcess):
         Returns:
         """
         nlp = self.model.Pipeline(lang=self.language, processors='tokenize',
-                                  logging_level='WARNING')
+                                  logging_level='WARNING', use_gpu=False)
         doc = nlp(self.data)
         for sentence in doc.sentences:
-            temp_sent = ''
-            tem_word = []
+            temp_sent, tem_word = '', []
             for token in sentence.tokens:
                 temp_sent += (' ' + token.text)
                 tem_word.append(token.text)
@@ -46,14 +44,13 @@ class STANZAPreprocessor(PreProcess):
         doc = nlp(self.words)
         for sentence in doc.sentences:
             temp = []
-            for word in sentence.words:
+            for word in sentence.words_lists:
                 if word.lemma is not None:
                     if '#' in word.lemma:
                         temp.append(word.lemma.split('#')[1])
                     else:
                         temp.append(word.lemma)
             self.lemmatized_words.append(temp)
-        # return lemmatized_words
 
     def lemmatize(self):
         return self.lemmatized_words

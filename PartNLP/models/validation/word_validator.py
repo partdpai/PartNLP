@@ -7,8 +7,11 @@ from PartNLP.models.validation.validator import Validator
 
 
 class WordValidator(Validator):
+    """
+            WORD VALIDATOR
+    """
     def __init__(self, config):
-        pass
+        super(WordValidator, self).__init__(config)
 
     def isvalid(self):
         """
