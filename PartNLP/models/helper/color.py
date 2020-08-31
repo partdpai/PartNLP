@@ -3,12 +3,15 @@
             AUTHORS:
                 MOSTAFA & SAMAN
 """
+from dataclasses import dataclass
+
+
+@dataclass
 class Color:
-    HEADER = '\033[95m'
-    BLUE = '\033[94m'
-    GREEN = '\033[92m'
-    Yellow = '\033[93m'
-    FAIL = '\033[91m'
-    ENDC = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
+    """
+            Colors
+    """
+    header, blue = '\033[95m', '\033[94m'
+    green, yellow = '\033[92m', '\033[93m'
+    fail, endc, bold = '\033[91m', '\033[0m', '\033[1m',
+    black = '\033[90m'
