@@ -20,7 +20,7 @@ class STANZAPreprocessor(PreProcess):
         Returns:
         """
         nlp = self.model.Pipeline(lang=self.language, processors='tokenize',
-                                  logging_level='WARNING', use_gpu=False)
+                                  logging_level='WARNING', use_gpu=True)
         doc = nlp(self.data)
         for sentence in doc.sentences:
             temp_sent, tem_word = '', []
@@ -44,7 +44,7 @@ class STANZAPreprocessor(PreProcess):
         doc = nlp(self.words)
         for sentence in doc.sentences:
             temp = []
-            for word in sentence.words_lists:
+            for word in sentence.words:
                 if word.lemma is not None:
                     if '#' in word.lemma:
                         temp.append(word.lemma.split('#')[1])

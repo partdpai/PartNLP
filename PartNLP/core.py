@@ -44,10 +44,10 @@ class Pipeline:
 
         # >>> Pipeline(package='HAZM', text=text, processors=['S_TOKENIZE', 'W_TOKENIZE'])
      """
-    def __init__(self, input_file_path, use_multiprocess=True, lang='persian',
+    def __init__(self, file_path, use_multiprocess=True, lang='persian',
                  package='HAZM', processors=[], **kwargs):
         self.output_list = []
-        config = self.__initialize_config(input_file_path, lang,
+        config = self.__initialize_config(file_path, lang,
                                           package, processors,
                                           use_multiprocess, **kwargs)
         config_validator(config)
@@ -59,7 +59,7 @@ class Pipeline:
         os.makedirs(os.getcwd() + '/preprocessed', exist_ok=True)
         data = InputDocument(config['InputFilePath'], config['InputFileFormat'])
         self._check_multiprocess(config, selected_operations, data)
-        logging.info(f'the result has been saved in {os.getcwd()}/preprocessed folder')
+        logging.warning(f'the result has been saved in {os.getcwd()}/preprocessed folder')
         program_time = perf_counter() - start_time
         show_program_profile(config['package'], self.batch_size,
                              config['processors'], program_time,

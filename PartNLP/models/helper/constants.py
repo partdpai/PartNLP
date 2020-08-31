@@ -1,5 +1,7 @@
 """
-In this script, we are going to add all constant values in which used in the entire project.
+        PartNLP
+            AUTHORS:
+                MOSTAFA & SAMAN
 """
 from PartNLP.models.pre_processors.hazm_preprocessor import HAZMPreprocessor as HAZM
 from PartNLP.models.pre_processors.stanza_preprocessor import STANZAPreprocessor as STANZA
@@ -20,7 +22,7 @@ SUPPORTED_PROCESSORS_FOR_PACKAGES = \
      'PARSIVAR': ['NORMALIZE', 'S_TOKENIZE', 'STEM', 'W_TOKENIZE'],
      'STANZA': ['S_TOKENIZE', 'W_TOKENIZE', 'LEMMATIZE']
     }
-SUPPORTED_PROCESSORS = ['NORMALIZE', 'S_TOKENIZE', 'STEM', 'W_TOKENIZE', 'LEMMATIZE']
+SUPPORTED_PROCESSORS = ['NORMALIZE', 'S_TOKENIZE', 'STEM', 'W_TOKENIZE', 'LEMMATIZE', 'POS']
 NAME_OF_SUPPORTED_LANGUAGES = ['ENGLISH', 'PERSIAN']
 NAME_OF_SUPPORTED_PACKAGES = ['HAZM', 'PARSIVAR', 'STANZA']
 EQUIVALENT_LANGUAGES_TO_STANZA = {'ENGLISH': 'en', 'PERSIAN': 'fa'}
