@@ -26,7 +26,6 @@ class Types:
         Types
     """
     txt_type = 'txt'
-    json_type = 'json'
 
 
 @dataclass
@@ -72,4 +71,11 @@ class ReaderAndWriter(ABC):
             result_data: An object of InputDocument
         Returns:
             Document: An object of Document
+        """
+    @abstractmethod
+    def get_file_size(self, path):
+        """
+        Args:
+            path:
+        Returns:
         """

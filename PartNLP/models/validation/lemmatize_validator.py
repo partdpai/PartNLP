@@ -8,6 +8,7 @@ from PartNLP.models.validation.validator import Validator
 
 class LemmatizeValidator(Validator):
     def __init__(self, config):
+        super(LemmatizeValidator, self).__init__(config)
         self.config = config
 
     def isvalid(self):

@@ -5,6 +5,7 @@
 """
 import os
 import logging
+from pathlib import Path
 from PartNLP.models.helper.readers_and_writers.reader_and_writer \
     import ReaderAndWriter, Document
 
@@ -17,7 +18,7 @@ class TxtReaderAndWriter(ReaderAndWriter):
         super(TxtReaderAndWriter, self).__init__()
         self.docs = []
 
-    def read_data(self, data, batch_size=1024):
+    def read_data(self, data, batch_size):
         """
         Args:
             data: An object of InputDocument
@@ -26,10 +27,9 @@ class TxtReaderAndWriter(ReaderAndWriter):
         """
         with open(data.path, encoding='utf-8', errors='ignore') as file:
             while True:
-                self.docs = file.read(batch_size)
+                self.docs = file.readlines(batch_size)
                 if not self.docs:
                     break
-                self.docs = self.docs.split(data.separator)
                 yield self.docs
 
     def write_data(self, result_data):
@@ -46,3 +46,6 @@ class TxtReaderAndWriter(ReaderAndWriter):
                 outfile.write('\n')
             outfile.close()
         logging.getLogger().setLevel(logging.INFO)
+
+    def get_file_size(self, path):
+        return Path(path).stat().st_size

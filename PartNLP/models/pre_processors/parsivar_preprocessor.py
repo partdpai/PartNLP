@@ -3,17 +3,16 @@
             AUTHORS:
                 MOSTAFA & SAMAN
 """
+import parsivar
 from parsivar import Normalizer, FindStems
 from PartNLP.models.pre_processors.preprocess import PreProcess
-from PartNLP.models.helper.color import Color
-import parsivar
 
 
 class PARSIVARPreprocessor(PreProcess):
-    """ PARSIVARPreprocessor
+    """
+            PARSIVARPreprocessor
     """
     def __init__(self, config=None):
-        # Initialize its constructor using parent constructor.
         super().__init__(config)
         self.model = parsivar
 
@@ -22,7 +21,8 @@ class PARSIVARPreprocessor(PreProcess):
         return self.sentences
 
     def word_tokenize(self):
-        self.words = [self.model.Tokenizer().tokenize_words(sent) for sent in self.sentences]
+        self.words = [self.model.Tokenizer().tokenize_words(sent)
+                      for sent in self.sentences]
         return self.words
 
     def normalize(self):
@@ -42,7 +42,7 @@ class PARSIVARPreprocessor(PreProcess):
         stemmer = FindStems()
         for words in self.words:
             temp = []
-            for word in words:
-                temp.append(stemmer.convert_to_stem(str(word)))
+            [temp.append(stemmer.convert_to_stem(str(word)))
+             for word in words]
             self.stem_words.append(temp)
         return self.stem_words

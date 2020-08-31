@@ -8,7 +8,7 @@ from PartNLP.models.validation.validator import Validator
 
 class SentValidator(Validator):
     def __init__(self, config):
-        pass
+        super(SentValidator, self).__init__(config)
 
     def isvalid(self):
         """

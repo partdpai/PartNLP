@@ -4,8 +4,8 @@
                 MOSTAFA & SAMAN
 """
 import unittest
-from PartNLP.models.pre_processors.parsivar_preprocessor import PARSIVARPreprocessor
 from PartNLP.models.helper import configuration
+from PartNLP.models.pre_processors.parsivar_preprocessor import PARSIVARPreprocessor
 
 
 class TestHazm(unittest.TestCase):
@@ -15,6 +15,7 @@ class TestHazm(unittest.TestCase):
     def setUp(self):
         super(TestHazm, self).__init__()
         self.config = configuration.get_config()
+        self.parsivar = None
 
     def test_normalize(self):
         """
