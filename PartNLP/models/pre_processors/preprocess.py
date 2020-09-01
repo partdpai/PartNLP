@@ -19,15 +19,19 @@ class PreProcess:
         """
         :return:
         """
-        self.sentences = self.model.sent_tokenize(self.data)
+        for paragraph in self.data:
+            self.sentences.append(self.model.sent_tokenize(paragraph))
         return self.sentences
 
     def word_tokenize(self):
         """
         :return:
         """
-        self.words = \
-            [self.model.word_tokenize(sent) for sent in self.sentences]
+        for paragraph in self.sentences:
+            temp_words = []
+            for sent in paragraph:
+                temp_words.append(self.model.word_tokenize(sent))
+            self.words.append(temp_words)
         return self.words
 
     def lemmatize(self): pass

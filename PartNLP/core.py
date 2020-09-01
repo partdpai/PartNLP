@@ -87,7 +87,7 @@ class Pipeline:
                       output_list, config['package'], batch_text, index)
 
     def _run(self, *args):
-        args[0]['text'] = '\n'.join(args[4])
+        args[0]['text'] = args[4]
         model = NAME_TO_PACKAGE_DICT[args[3]](args[0])
         for operation in args[1]:
             self._run_operation(model, operation, args[2], args[3], args[5])

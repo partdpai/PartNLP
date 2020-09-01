@@ -42,8 +42,7 @@ class TxtReaderAndWriter(ReaderAndWriter):
         with open(os.getcwd() + '/preprocessed' + '/' +
                   result_data.package + '.' + result_data.operation + '.txt', 'a') as outfile:
             for value in result_data.output_value:
-                outfile.write(str(value))
-                outfile.write('\n')
+                outfile.write(str(value) + '\n') if value else outfile.write('\n')
             outfile.close()
         logging.getLogger().setLevel(logging.INFO)
 

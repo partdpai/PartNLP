@@ -21,9 +21,9 @@ class HAZMPreprocessor(PreProcess):
         :return:
         """
         normalizer = Normalizer()
-        for line in self.data.split('\n'):
-            self.normalize_text.append(normalizer.normalize(line)) \
-                if line != "" else None
+        for paragraph in self.data:
+            self.normalize_text.append(normalizer.normalize(paragraph)) \
+                if paragraph != "" else None
         return self.normalize_text
 
     def stem(self):
@@ -31,10 +31,13 @@ class HAZMPreprocessor(PreProcess):
         :return:
         """
         stemmer = Stemmer()
-        for words in self.words:
-            temp = []
-            [temp.append(stemmer.stem(str(word))) for word in words]
-            self.stem_words.append(temp)
+        for paragraph in self.words:
+            temp_words = []
+            for words in paragraph:
+                temp = []
+                [temp.append(stemmer.stem(str(word))) for word in words]
+                temp_words.append(temp)
+            self.stem_words.append(temp_words)
         return self.stem_words
 
     def lemmatize(self):
@@ -42,14 +45,16 @@ class HAZMPreprocessor(PreProcess):
         :return:
         """
         lemmatizer = Lemmatizer()
-        for words in self.words:
-            temp = []
-            for word in words:
-                word_lemma = lemmatizer.lemmatize(word)
-                if word_lemma is not None:
-                    temp.append(word_lemma.split("#")[1]) if "#" in word_lemma \
-                        else temp.append(word_lemma)
-                else:
-                    temp.append(word)
-            self.lemmatized_words.append(temp)
+        for paragraph in self.words:
+            temp_lemma = []
+            for words in paragraph:
+                temp = []
+                for word in words:
+                    word_lemma = lemmatizer.lemmatize(word)
+                    if word_lemma is not None:
+                        temp.append(word_lemma)
+                    else:
+                        temp.append(word)
+                temp_lemma.append(temp)
+            self.lemmatized_words.append(temp_lemma)
         return self.lemmatized_words
