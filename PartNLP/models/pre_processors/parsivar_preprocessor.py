@@ -28,7 +28,10 @@ class PARSIVARPreprocessor(PreProcess):
 
     def sent_tokenize(self):
         for paragraph in self.data:
-            self.sentences.append(self.model.Tokenizer().tokenize_sentences(paragraph))
+            if paragraph != '\n':
+                self.sentences.append(self.model.Tokenizer().tokenize_sentences(paragraph))
+            else:
+                self.sentences.append([])
         return self.sentences
 
     def word_tokenize(self):
