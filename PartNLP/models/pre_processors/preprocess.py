@@ -15,6 +15,16 @@ class PreProcess:
         self.normalize_text, self.sentences = [], []
         self.language, self.data = config['Language'], config['text']
 
+    def normalize(self):
+        """
+        :return:
+        """
+        for paragraph in self.data:
+            if paragraph != "":
+                self.normalize_text.append(
+                    self.model.Normalizer().normalize(paragraph))
+        return self.normalize_text
+
     def sent_tokenize(self):
         """
         :return:
@@ -35,8 +45,6 @@ class PreProcess:
         return self.words
 
     def lemmatize(self): pass
-
-    def normalize(self): pass
 
     def stem(self): pass
 
