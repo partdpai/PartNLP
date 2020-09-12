@@ -3,7 +3,7 @@
             AUTHORS:
                 MOSTAFA & SAMAN
 """
-from PartNLP.models.validation.validator import Validator
+from PartNLP.models.validators.validator import Validator
 
 
 class PosValidator(Validator):
@@ -21,4 +21,4 @@ class PosValidator(Validator):
         self.config[name] = new_value
 
     def get_dependencies(self):
-        return ['S_TOKENIZE', 'W_TOKENIZE']
+        return ['s_tokenize', 'w_tokenize']
