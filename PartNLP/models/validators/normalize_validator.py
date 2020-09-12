@@ -3,10 +3,13 @@
             AUTHORS:
                 MOSTAFA & SAMAN
 """
-from PartNLP.models.validation.validator import Validator
+from PartNLP.models.validators.validator import Validator
 
 
 class NormalizeValidator(Validator):
+    """
+            NORMALIZE VALIDATOR
+    """
     def __init__(self, config):
         """
         Args:
