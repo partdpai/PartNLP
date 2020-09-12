@@ -16,20 +16,11 @@ class PARSIVARPreprocessor(PreProcess):
         super().__init__(config)
         self.model = parsivar
 
-    def normalize(self):
-        """
-        :return:
-        """
-        normalizer = Normalizer()
-        for line in self.data:
-            if line != "":
-                self.normalize_text.append(normalizer.normalize(line))
-        return self.normalize_text
-
     def sent_tokenize(self):
         for paragraph in self.data:
             if paragraph != '\n':
-                self.sentences.append(self.model.Tokenizer().tokenize_sentences(paragraph))
+                self.sentences.append(
+                    self.model.Tokenizer().tokenize_sentences(paragraph))
             else:
                 self.sentences.append([])
         return self.sentences
@@ -48,10 +39,13 @@ class PARSIVARPreprocessor(PreProcess):
         """
         stemmer = FindStems()
         for paragraph in self.words:
-            temp_words = []
-            for words in paragraph:
-                temp = []
-                [temp.append(stemmer.convert_to_stem(str(word))) for word in words]
-                temp_words.append(temp)
-            self.stem_words.append(temp_words)
+            self._stem_chunk_words(paragraph, stemmer)
         return self.stem_words
+
+    def _stem_chunk_words(self, paragraph, stemmer):
+        temp_words = []
+        for words in paragraph:
+            temp = []
+            [temp.append(stemmer.convert_to_stem(str(word))) for word in words]
+            temp_words.append(temp)
+        self.stem_words.append(temp_words)
