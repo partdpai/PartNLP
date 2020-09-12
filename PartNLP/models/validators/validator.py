@@ -6,6 +6,9 @@
 
 
 class Validator:
+    """
+        VALIDATOR
+    """
     def __init__(self, config):
         self.config = config
 
@@ -16,9 +19,19 @@ class Validator:
         pass
 
     def prepare_input_value(self):
+        """
+        Returns:
+        """
         pass
 
     def update_config_value(self, name, old_value, new_value):
+        """
+        Args:
+            name:
+            old_value:
+            new_value:
+        Returns:
+        """
         self.config[name] = new_value
 
     def get_dependencies(self):
