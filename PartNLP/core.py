@@ -53,10 +53,9 @@ class Pipeline:
 
     def _work_flow(self, config):
         start_time = perf_counter()
-        os.makedirs(os.getcwd() + '/preprocessed', exist_ok=True)
         data = InputDocument(config['FilePath'], config['FileFormat'])
         run(config, data, self.reader_writer_obj)
-        logging.warning(f'the result has been saved in {os.getcwd()}/preprocessed folder')
+        logging.warning(f'the result has been saved in {config["OutputPath"]}/preprocessed folder')
         program_time = perf_counter() - start_time
         file_size = self.reader_writer_obj.get_file_size(config['FilePath'])
         show_program_profile(config=config, program_time=program_time, file_size=file_size)

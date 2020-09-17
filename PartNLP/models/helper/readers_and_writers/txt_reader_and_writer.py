@@ -17,7 +17,7 @@ class TxtReaderAndWriter(ReaderAndWriter):
     def __init__(self):
         super(TxtReaderAndWriter, self).__init__()
         self.docs, self.next_document = [], False
-        self.splitter = '===================next paragraph==================='
+        self.splitter = ''
 
     def read_data(self, data, batch_size):
         """
@@ -40,10 +40,16 @@ class TxtReaderAndWriter(ReaderAndWriter):
         Returns:
             None
         """
-        with open(os.getcwd() + '/preprocessed' + '/' +
-                  result_data.package + '.' + result_data.operation + '.txt', 'a') as outfile:
+        path = self._get_path(result_data)
+        with open(path, 'a') as outfile:
             self._write_structured_data_base_operation(result_data, outfile)
         logging.getLogger().setLevel(logging.INFO)
+
+    def _get_path(self, result_data):
+        path = os.path.join(result_data.output_path, 'preprocessed/')
+        if not os.path.isdir(path):
+            os.mkdir(path)
+        return path + result_data.package + '.' + result_data.operation + '.txt'
 
     def _write_structured_data_base_operation(self, result_data, outfile):
         """
@@ -74,6 +80,12 @@ class TxtReaderAndWriter(ReaderAndWriter):
             outfile.write(f'{self.splitter} \n') if self.next_document else None
 
     def _write_sentence_level(self, chunks, outfile):
+        """
+        Args:
+            chunks:
+            outfile:
+        Returns:
+        """
         for chunk in chunks:
             self.iterate_items(chunk, outfile)
             outfile.write(f'{self.splitter} \n') if self.next_document else None
@@ -104,4 +116,9 @@ class TxtReaderAndWriter(ReaderAndWriter):
             self.next_document = True
 
     def get_file_size(self, path):
+        """
+        Args:
+            path:
+        Returns:
+        """
         return Path(path).stat().st_size

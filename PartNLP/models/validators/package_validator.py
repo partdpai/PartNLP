@@ -47,13 +47,13 @@ class PackageValidator(Validator):
         """
         Returns: None
         """
-        if self.config['package'] == 'STANZA':
+        if self.config['package'] == 'stanza':
             home_dir = str(Path.home())
             default_model_dir = os.getenv('STANZA_RESOURCES_DIR',
                                           os.path.join(home_dir, 'stanza_resources/'))
             directory = default_model_dir
             directory = directory + EQUIVALENT_LANGUAGES_TO_STANZA[
-                self.config['Language'].upper()]
+                self.config['Language']]
             if not os.path.isdir(directory):
                 lang = self.config['Language']
                 return False, f'stanza needs {Color.header}{lang} ' \

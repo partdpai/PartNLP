@@ -42,8 +42,8 @@ class JsonReaderAndWriter(ReaderAndWriter):
             None
         """
         nested_data = defaultdict(dict)
-        with open(os.getcwd() + '/preprocessed' + '/' +
-                  result_data.package + '.' + result_data.operation + '.json', 'a') as outfile:
+        path = self._get_path(result_data)
+        with open(path, 'a') as outfile:
             if result_data.operation == 'normalize':
                 nested_data = self._build_nested_paragraphs(result_data.output_value)
             elif result_data.operation == 's_tokenize':
@@ -53,11 +53,32 @@ class JsonReaderAndWriter(ReaderAndWriter):
             outfile.write(json.dumps(nested_data, ensure_ascii=False, indent=4) + '\n')
         logging.getLogger().setLevel(logging.INFO)
 
+    def _get_path(self, result_data):
+        """
+        Args:
+            result_data:
+        Returns:
+        """
+        path = os.path.join(result_data.output_path, 'preprocessed/')
+        if not os.path.isdir(path):
+            os.mkdir(path)
+        return path + result_data.package + '.' + result_data.operation + '.json'
+
     def _build_nested_paragraphs(self, data):
+        """
+        Args:
+            data:
+        Returns:
+        """
         parent_name, child_name = 'دیتا', 'پاراگراف'
         return self._iterate_items(data, parent_name, child_name, 1)
 
     def _build_nested_sentences(self, data):
+        """
+        Args:
+            data:
+        Returns:
+        """
         parent_name, child_name, nested_data = 'پاراگراف', 'جمله', defaultdict(dict)
         index = 0
         for paragraph in data:
@@ -68,6 +89,11 @@ class JsonReaderAndWriter(ReaderAndWriter):
         return {'دیتا': nested_data}
 
     def _build_nested_words(self, data):
+        """
+        Args:
+            data:
+        Returns:
+        """
         parent_name, child_name, nested_sentences = 'جمله', 'کلمه', defaultdict(dict)
         paragraph_index = 0
         for paragraph in data:
@@ -84,6 +110,14 @@ class JsonReaderAndWriter(ReaderAndWriter):
         return {'دیتا1': nested_sentences}
 
     def _iterate_items(self, items, parent_name, child_name, index):
+        """
+        Args:
+            items:
+            parent_name:
+            child_name:
+            index:
+        Returns:
+        """
         components, nested_components = defaultdict(dict), defaultdict(dict)
         index_item = 0
         for item in items:
@@ -94,4 +128,9 @@ class JsonReaderAndWriter(ReaderAndWriter):
         return nested_components
 
     def get_file_size(self, path):
+        """
+        Args:
+            path:
+        Returns:
+        """
         return Path(path).stat().st_size

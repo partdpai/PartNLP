@@ -3,6 +3,7 @@
             AUTHORS:
                 MOSTAFA & SAMAN
 """
+import os
 from PartNLP.models.helper.constants import BATCH_SIZE_BASED_ON_PACKAGE
 
 
@@ -14,7 +15,7 @@ def init_config():
         'text': '', 'Language': 'persian',
         'FilePath': '', 'operations': [],
         'package': '', 'FileFormat': '',
-        'multiProcessType': '', 'OutputFilePath': '',
+        'multiProcessType': '', 'OutputPath': '',
         'batchSize': 1000, 'selectedOperations': []
     }
     return config
@@ -37,7 +38,21 @@ def set_pipeline_config(file_path, use_multiprocess,
     config['operations'], config['multiProcessType'] = processors, use_multiprocess
     config['selectedOperations'], config['package'] = config['operations'], package
     set_file_format(config, **kwargs)
+    set_output_file_path(config, **kwargs)
     return config
+
+
+def set_output_file_path(config, **kwargs):
+    """
+    Args:
+        config:
+        **kwargs:
+    Returns:
+    """
+    if 'output_path' in kwargs.keys():
+        config['OutputPath'] = kwargs['output_path']
+    else:
+        config['OutputPath'] = os.getcwd()
 
 
 def set_batch_size(config, **kwargs):
