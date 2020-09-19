@@ -16,7 +16,8 @@ def init_config():
         'FilePath': '', 'operations': [],
         'package': '', 'FileFormat': '',
         'multiProcessType': '', 'OutputPath': '',
-        'batchSize': 1000, 'selectedOperations': []
+        'batchSize': 1000, 'selectedOperations': [],
+        'number_of_batches': 0, 'number_of_cpus': 0
     }
     return config
 
@@ -39,6 +40,8 @@ def set_pipeline_config(file_path, use_multiprocess,
     config['selectedOperations'], config['package'] = config['operations'], package
     set_file_format(config, **kwargs)
     set_output_file_path(config, **kwargs)
+    set_number_of_batches(config, **kwargs)
+    set_number_of_cpus(config, **kwargs)
     return config
 
 
@@ -53,6 +56,28 @@ def set_output_file_path(config, **kwargs):
         config['OutputPath'] = kwargs['output_path']
     else:
         config['OutputPath'] = os.getcwd()
+
+
+def set_number_of_cpus(config, **kwargs):
+    """
+    Args:
+        config:
+        **kwargs:
+    Returns:
+    """
+    if 'number_of_cpus' in kwargs.keys():
+        config['number_of_cpus'] = kwargs['number_of_cpus']
+
+
+def set_number_of_batches(config, **kwargs):
+    """
+    Args:
+        config:
+        **kwargs:
+    Returns:
+    """
+    if 'number_of_batches' in kwargs.keys():
+        config['number_of_batches'] = kwargs['number_of_batches']
 
 
 def set_batch_size(config, **kwargs):

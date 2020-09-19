@@ -59,3 +59,7 @@ class Pipeline:
         program_time = perf_counter() - start_time
         file_size = self.reader_writer_obj.get_file_size(config['FilePath'])
         show_program_profile(config=config, program_time=program_time, file_size=file_size)
+
+
+if __name__ == '__main__':
+    Pipeline(file_path='/home/mostafa/Desktop/small_dataset.txt', number_of_cpus=2, number_of_batches=3)

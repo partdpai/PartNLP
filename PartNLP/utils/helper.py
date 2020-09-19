@@ -103,7 +103,9 @@ def run_with_ordered_multiprocessing(config, data, reader):
         reader:
     Returns:
     """
-    batch_texts, number_of_chunks = [], find_number_of_chunks(config['batchSize'])
+    batch_texts = []
+    number_of_chunks = config['number_of_batches'] if config['number_of_batches'] \
+        else find_number_of_chunks(config['batchSize'])
     print(f'number of chunks is: {number_of_chunks}')
     preprocessed_values = defaultdict(list)
     for index, batch_text in tqdm(enumerate(reader.read_data(data, config['batchSize']))):
@@ -128,9 +130,14 @@ def do_ordered_multiprocess(**kwargs):
     batch_texts_lists = []
     [batch_texts_lists.append((kwargs['config'], batch_text))
      for batch_text in kwargs['batch_texts']]
-    with multiprocessing.Pool() as pool:
-        preprocessed_values = pool.map(get_preprocessed_dict, batch_texts_lists)
-        pool.close()
+    if kwargs['config']['number_of_cpus']:
+        with multiprocessing.Pool(kwargs['config']['number_of_cpus']) as pool:
+            preprocessed_values = pool.map(get_preprocessed_dict, batch_texts_lists)
+            pool.close()
+    else:
+        with multiprocessing.Pool() as pool:
+            preprocessed_values = pool.map(get_preprocessed_dict, batch_texts_lists)
+            pool.close()
     return preprocessed_values
 
 
