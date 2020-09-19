@@ -3,15 +3,16 @@
             AUTHORS:
                 MOSTAFA & SAMAN
 """
-from PartNLP.models.validation.validator import Validator
+from PartNLP.models.validators.validator import Validator
 
 
-class WordValidator(Validator):
+class StemValidator(Validator):
     """
-            WORD VALIDATOR
+            STEM VALIDATOR
     """
     def __init__(self, config):
-        super(WordValidator, self).__init__(config)
+        super(StemValidator, self).__init__(config)
+        self.config = config
 
     def isvalid(self):
         """
@@ -20,4 +21,4 @@ class WordValidator(Validator):
         return True, '', None
 
     def get_dependencies(self):
-        return ['S_TOKENIZE']
+        return ['s_tokenize', 'w_tokenize']

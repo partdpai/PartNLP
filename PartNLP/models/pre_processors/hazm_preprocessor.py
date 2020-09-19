@@ -16,40 +16,41 @@ class HAZMPreprocessor(PreProcess):
         super().__init__(config)
         self.model = hazm
 
-    def normalize(self):
-        """
-        :return:
-        """
-        normalizer = Normalizer()
-        for line in self.data.split('\n'):
-            self.normalize_text.append(normalizer.normalize(line)) \
-                if line != "" else None
-        return self.normalize_text
-
     def stem(self):
         """
         :return:
         """
         stemmer = Stemmer()
-        for words in self.words:
+        for chunk in self.words:
+            self._get_stem_words(chunk, stemmer)
+        return self.stem_words
+
+    def _get_stem_words(self, chunk, stemmer):
+        temp_words = []
+        for words in chunk:
             temp = []
             [temp.append(stemmer.stem(str(word))) for word in words]
-            self.stem_words.append(temp)
-        return self.stem_words
+            temp_words.append(temp)
+        self.stem_words.append(temp_words)
 
     def lemmatize(self):
         """
         :return:
         """
         lemmatizer = Lemmatizer()
-        for words in self.words:
-            temp = []
-            for word in words:
-                word_lemma = lemmatizer.lemmatize(word)
-                if word_lemma is not None:
-                    temp.append(word_lemma.split("#")[1]) if "#" in word_lemma \
-                        else temp.append(word_lemma)
-                else:
-                    temp.append(word)
-            self.lemmatized_words.append(temp)
+        for paragraph in self.words:
+            temp_lemma = []
+            for words in paragraph:
+                temp_lemma.append(self._lemmatize_words(words, lemmatizer))
+            self.lemmatized_words.append(temp_lemma)
         return self.lemmatized_words
+
+    def _lemmatize_words(self, words, lemmatizer):
+        temp = []
+        for word in words:
+            word_lemma = lemmatizer.lemmatize(word)
+            if word_lemma is not None:
+                temp.append(word_lemma)
+            else:
+                temp.append(word)
+        return temp

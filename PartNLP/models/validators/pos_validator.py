@@ -3,16 +3,12 @@
             AUTHORS:
                 MOSTAFA & SAMAN
 """
-from PartNLP.models.validation.validator import Validator
+from PartNLP.models.validators.validator import Validator
 
 
-class NormalizeValidator(Validator):
+class PosValidator(Validator):
     def __init__(self, config):
-        """
-        Args:
-            config:
-        """
-        super(NormalizeValidator, self).__init__(config)
+        super().__init__(config)
         self.config = config
 
     def isvalid(self):
@@ -21,5 +17,8 @@ class NormalizeValidator(Validator):
         """
         return True, '', None
 
+    def update_config_value(self, name, old_value, new_value):
+        self.config[name] = new_value
+
     def get_dependencies(self):
-        return []
+        return ['s_tokenize', 'w_tokenize']

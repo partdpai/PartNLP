@@ -3,10 +3,13 @@
             AUTHORS:
                 MOSTAFA & SAMAN
 """
-from PartNLP.models.validation.validator import Validator
+from PartNLP.models.validators.validator import Validator
 
 
 class SentValidator(Validator):
+    """
+        SENTENCE VALIDATOR
+    """
     def __init__(self, config):
         super(SentValidator, self).__init__(config)
 
@@ -18,6 +21,9 @@ class SentValidator(Validator):
         return self.is_name_valid()
 
     def is_name_valid(self):
+        """
+        Returns:
+        """
         return True, '', None
 
     def get_dependencies(self):
