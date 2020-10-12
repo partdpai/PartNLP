@@ -3,10 +3,13 @@
             AUTHORS:
                 MOSTAFA & SAMAN
 """
-from PartNLP.models.validation.validator import Validator
+from PartNLP.models.validators.validator import Validator
 
 
 class LemmatizeValidator(Validator):
+    """
+        LEMMATIZE VALIDATOR
+    """
     def __init__(self, config):
         super(LemmatizeValidator, self).__init__(config)
         self.config = config
@@ -18,4 +21,4 @@ class LemmatizeValidator(Validator):
         return True, '', None
 
     def get_dependencies(self):
-        return ['S_TOKENIZE', 'W_TOKENIZE', 'POS']
+        return ['s_tokenize', 'w_tokenize', 'pos']

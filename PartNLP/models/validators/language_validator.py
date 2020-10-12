@@ -4,12 +4,15 @@
                 MOSTAFA & SAMAN
 """
 from PartNLP.models.helper.color import Color
-from PartNLP.models.validation.validator import Validator
+from PartNLP.models.validators.validator import Validator
 from PartNLP.models.helper.constants import NAME_OF_SUPPORTED_LANGUAGES
 from PartNLP.models.helper.constants import SUPPORTED_LANGUAGES_TO_PACKAGES
 
 
 class LanguageValidator(Validator):
+    """
+            LANGUAGE VALIDATOR
+    """
     def __init__(self, config):
         super(LanguageValidator, self).__init__(config)
         self.config = config
@@ -35,9 +38,6 @@ class LanguageValidator(Validator):
                           f'package is not supported for {Color.fail}{language}{Color.endc} language.', \
                           self.config['Language']
         return True, '', self.config['Language']
-
-    def prepare_input_value(self):
-        self.config['Language'] = self.config['Language'].upper()
 
     def get_dependencies(self):
         return []

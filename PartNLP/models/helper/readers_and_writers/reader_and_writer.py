@@ -46,6 +46,7 @@ class OutPutDocument:
     output_value: List[str]
     operation: str
     package: str
+    output_path: str
 
 
 class ReaderAndWriter(ABC):
